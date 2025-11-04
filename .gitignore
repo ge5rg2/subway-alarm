@@ -1,0 +1,81 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+/.yarn/*
+!/.yarn/patches
+!/.yarn/plugins
+!/.yarn/releases
+!/.yarn/sdks
+!/.yarn/versions
+
+# Testing
+coverage/
+*.lcov
+
+# Production
+dist/
+build/
+*.tsbuildinfo
+
+# Mobile - iOS
+apps/mobile/ios/Pods/
+apps/mobile/ios/build/
+apps/mobile/ios/.xcode.env.local
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata/
+*.xccheckout
+*.moved-aside
+DerivedData/
+*.hmap
+*.ipa
+*.xcuserstate
+
+# Mobile - Android
+apps/mobile/android/build/
+apps/mobile/android/.gradle/
+apps/mobile/android/app/build/
+*.apk
+*.aab
+
+# React Native
+apps/mobile/.expo/
+apps/mobile/metro-cache/
+
+# Environment
+.env
+.env*.local
+*.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# AWS & Infrastructure
+infrastructure/terraform/.terraform/
+infrastructure/terraform/terraform.tfstate*
+*.pem
+*.key
+
+# Temporary files
+tmp/
+temp/
+*.tmp
