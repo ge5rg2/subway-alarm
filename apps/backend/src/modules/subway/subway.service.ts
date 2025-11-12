@@ -49,7 +49,7 @@ export class SubwayService {
 
     // JSON 데이터 로드
     const data = stationsJson as StationsJson;
-    this.stationsData = data.DATA;
+    this.stationsData = data.stations;
 
     // 데이터 로드 확인
     this.logger.log(`Loaded ${this.stationsData.length} subway stations`);
@@ -57,7 +57,8 @@ export class SubwayService {
 
   /**
    * 실시간 지하철 도착 정보 조회
-   * TODO: 호선 구분 + 상행/하행/외선/내선 구분 파라미터 추가
+   * TODO: 사용자의 지정 시간대에 맞춰 데이터를 캐싱하는 기능 추가
+   * TODO: barvlDt(도착예정시간) 기준으로 알림 / barvlDt 60이내일 경우에 arvlMsg2 활용
    */
   async getArrivalInfo(
     arriveDto: ArrivalRequestDto
@@ -158,10 +159,10 @@ export class SubwayService {
     searchDto: SearchStationDto
   ): Promise<StationListResponseDto> {
     let stations = this.stationsData.map((station: StationData) => ({
-      stationId: station.station_cd,
-      stationCode: station.fr_code,
-      stationName: station.station_nm,
-      lineName: station.line_num,
+      stationId: station.id,
+      stationCode: station.lineCode,
+      stationName: station.name,
+      lineName: station.line,
     }));
 
     // 키워드 필터
